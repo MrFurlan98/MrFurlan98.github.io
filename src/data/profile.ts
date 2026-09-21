@@ -12,11 +12,10 @@ export type SocialLink = {
 
 export const profile = {
   /** Shown in the browser tab and in structured data */
-  siteName: "Your Name — Software Developer",
+  siteName: "Vinicius Furlan — Software Developer",
 
-  // TODO: your real name — it's the one thing on this page I couldn't
-  // work out from your repos, and it also feeds the "yn.dev" logo mark.
-  name: "Your Name",
+  /** Also feeds the logo mark in the header, via its initials */
+  name: "Vinicius Furlan",
   /** The line right under your name in the hero */
   role: "Software Developer",
   /** One or two sentences. Keep it concrete — what you build and what you care about. */

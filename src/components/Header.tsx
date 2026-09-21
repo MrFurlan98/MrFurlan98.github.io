@@ -5,7 +5,7 @@ import { profile } from "../data/profile";
 import { sectionIds, sections, sectionNumber } from "../data/sections";
 import { useActiveSection, useScrolled } from "../hooks/useActiveSection";
 
-/** Initials used as the logo mark, e.g. "Bruno Furlan" -> "bf". */
+/** Initials used as the logo mark, e.g. "Vinicius Furlan" -> "vf". */
 function initials(name: string): string {
   return name
     .split(/\s+/)
