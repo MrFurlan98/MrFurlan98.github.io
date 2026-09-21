@@ -8,6 +8,13 @@ import type { Project } from "../data/projects";
 
 const ALL = "All";
 
+/**
+ * Below this many projects the filter row is more chrome than help — a dozen
+ * tag buttons above two cards just looks over-engineered. Add a third and
+ * fourth project and the filters come back on their own.
+ */
+const MIN_PROJECTS_FOR_FILTERS = 4;
+
 function ProjectLinks({ project }: { project: Project }) {
   return (
     <div className="card-links">
@@ -153,6 +160,7 @@ export function Projects() {
 
   const featured = visible.filter((p) => p.featured);
   const rest = visible.filter((p) => !p.featured);
+  const showFilters = projects.length >= MIN_PROJECTS_FOR_FILTERS;
 
   return (
     <section className="section container" id="projects">
@@ -160,25 +168,27 @@ export function Projects() {
         <SectionHeading id="projects" title="Things I've built" />
       </Reveal>
 
-      <Reveal>
-        <div
-          className="filters"
-          role="group"
-          aria-label="Filter projects by technology"
-        >
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              type="button"
-              className="chip"
-              aria-pressed={filter === tag}
-              onClick={() => setFilter(tag)}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      </Reveal>
+      {showFilters ? (
+        <Reveal>
+          <div
+            className="filters"
+            role="group"
+            aria-label="Filter projects by technology"
+          >
+            {tags.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                className="chip"
+                aria-pressed={filter === tag}
+                onClick={() => setFilter(tag)}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </Reveal>
+      ) : null}
 
       {featured.length > 0 ? (
         <div className="featured-list">
