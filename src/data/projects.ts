@@ -50,29 +50,9 @@ export const projects: Project[] = [
       "In a Nuzlocke a faint is forever, so fights get planned rather than improvised. This adds a canvas to the Platinum Kaizo damage calculator where each turn is a card, joined by labelled arrows that branch when the plan goes off-script — with both movesets side by side, so a move is chosen by weighing what you can do against what's coming back. Built as a fork of the community calculator by anastarawneh.",
     tags: ["JavaScript", "Canvas", "Tooling"],
     repo: "https://github.com/MrFurlan98/pk-line-planner",
-    demo: null,
+    demo: "https://mrfurlan98.github.io/pk-line-planner/",
     image: "/projects/placeholder.svg",
     featured: true,
     year: "2026",
-  },
-  {
-    id: "project-conquest",
-    title: "Project Conquest",
-    summary:
-      "A strategy game built in Unity as a self-directed exercise in game systems and level design.",
-    tags: ["C#", "Unity", "Game Dev"],
-    repo: "https://github.com/MrFurlan98/ProjectConquest",
-    demo: null,
-    year: "2022",
-  },
-  {
-    id: "rpg-toolkit",
-    title: "RPG Toolkit",
-    summary:
-      "A reusable set of Unity RPG systems — combat, stats, saving and dialogue — built through the GameDev.tv series.",
-    tags: ["C#", "Unity", "Game Dev"],
-    repo: "https://github.com/MrFurlan98/RPG-ToolKit",
-    demo: null,
-    year: "2025",
   },
 ];
