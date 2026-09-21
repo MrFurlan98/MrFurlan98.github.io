@@ -12,17 +12,17 @@ export type SocialLink = {
 
 export const profile = {
   /** Shown in the browser tab and in structured data */
-  siteName: "Vinicius Furlan — Software Developer",
+  siteName: "Vinicius Furlan — Software Engineer",
 
   /** Also feeds the logo mark in the header, via its initials */
   name: "Vinicius Furlan",
   /** The line right under your name in the hero */
-  role: "Software Developer",
+  role: "Software Engineer",
   /** One or two sentences. Keep it concrete — what you build and what you care about. */
   tagline:
-    "I build games and the tools around them — multiplayer systems in Unity, and planners that turn a messy problem into something you can actually see.",
+    "Software engineer with 5+ years building interactive applications and games in C# and Unity. I currently work on real-time 3D medical imaging — turning volumetric scan data into something you can pick up and explore.",
 
-  location: "Brazil",
+  location: "Campinas, Brazil",
   /** Set to null to hide the availability pill in the hero */
   availability: "Open to new opportunities" as string | null,
 
@@ -33,15 +33,18 @@ export const profile = {
 
   /** Paragraphs for the About section */
   about: [
-    "I'm a developer working across game development and full-stack web, currently finishing a postgraduate degree in Full Stack Development.",
-    "Most of what I build comes out of wanting the thing to exist: a multiplayer party game my friends could join from a browser with a room code, or a battle planner for a game mode where one bad turn ends the run. The interesting part is usually the architecture underneath — keeping game rules in plain, testable code that doesn't depend on the engine around it.",
-    "Lately I've been working with Unity 6 and Netcode for GameObjects on the game side, and JavaScript and TypeScript on the web side.",
+    "I'm a software engineer with over five years of experience building interactive applications and games, mostly in C# and Unity. I hold a degree in Computer Engineering from UTFPR, with an exchange year at the University of Porto, and I'm finishing a postgraduate program in Full Stack Development.",
+    "Right now I work on BioAtlas at Medical Harbour, a Unity application that renders volumetric medical data as interactive 3D — slicing, measurement and annotation tools that let a clinician explore a scan instead of paging through flat images. Before that I spent three years on mobile games at Kool Games Studio, including one that passed 100,000 downloads.",
+    "The through-line is real-time systems that have to stay responsive under constraints: shaders and rendering, asset streaming, and performance work across WebGL and mobile. I also care about the architecture underneath — reusable systems and internal tools that keep a project maintainable after the first release.",
   ],
 
   socials: [
     { label: "GitHub", href: "https://github.com/MrFurlan98", icon: "github" },
-    // TODO: add your LinkedIn, or delete this line if you'd rather not link it.
-    // { label: "LinkedIn", href: "https://linkedin.com/in/YOUR_HANDLE", icon: "linkedin" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/vrfurlan/",
+      icon: "linkedin",
+    },
     { label: "Email", href: "mailto:mr.furlan98@gmail.com", icon: "mail" },
   ] as SocialLink[],
 };
@@ -50,30 +53,38 @@ export const profile = {
 export const skillGroups: { title: string; items: string[] }[] = [
   {
     title: "Languages",
-    items: ["C#", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+    items: ["C#", "C++", "JavaScript", "TypeScript", "SQL"],
   },
   {
-    title: "Game Development",
+    title: "Engines & Frameworks",
     items: [
-      "Unity 6",
+      "Unity",
+      ".NET",
       "Netcode for GameObjects",
-      "Unity Relay",
-      "WebGL builds",
-      "uGUI / TextMeshPro",
+      "Addressables",
+      "AssetBundles",
     ],
   },
   {
-    title: "Web",
-    items: ["React", "Vite", "Node.js", "REST APIs", "Canvas API"],
-  },
-  {
-    title: "Practices",
+    title: "3D & Graphics",
     items: [
-      "Git",
-      "GitHub Actions",
-      "Unit testing",
-      "Layered architecture",
-      "C4 Model",
+      "Real-time 3D",
+      "URP",
+      "Shaders",
+      "Rendering",
+      "Performance optimization",
     ],
+  },
+  {
+    title: "Platforms",
+    items: ["WebGL", "Android", "iOS"],
+  },
+  {
+    title: "Backend & APIs",
+    items: ["REST APIs", "Authentication", "Firebase", "Node.js"],
+  },
+  {
+    title: "Tools & Practices",
+    items: ["Git", "CI/CD", "GitHub Actions", "Unit testing", "React", "Vite"],
   },
 ];

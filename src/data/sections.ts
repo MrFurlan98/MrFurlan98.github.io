@@ -1,6 +1,7 @@
 /** Sections in page order. Drives both the nav and the numbered headings. */
 export const sections = [
   { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "stack", label: "Stack" },
   { id: "contact", label: "Contact" },
