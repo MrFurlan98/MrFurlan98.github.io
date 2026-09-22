@@ -1349,3 +1349,72 @@ ul {
     font-size: 1.08rem;
   }
 }
+
+/* ==========================================================================
+   Education
+   Sits under the roles, intentionally quieter than the timeline above it.
+   ========================================================================== */
+
+.education {
+  margin-top: 3.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.education h3 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 1.35rem;
+}
+
+.education ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education li {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+}
+
+.education .period {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.education .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.education .detail strong {
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--text);
+}
+
+.education .institution {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.education .note {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 560px) {
+  .education li {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}

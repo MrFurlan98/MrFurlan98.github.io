@@ -1,7 +1,7 @@
 import { Icon } from "./Icon";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
-import { experience } from "../data/experience";
+import { education, experience } from "../data/experience";
 
 export function Experience() {
   return (
@@ -80,6 +80,29 @@ export function Experience() {
           </Reveal>
         ))}
       </ol>
+
+      {education.length > 0 ? (
+        <Reveal delay={120}>
+          <div className="education">
+            <h3>Education</h3>
+
+            <ul>
+              {education.map((study) => (
+                <li key={study.id}>
+                  <span className="period">{study.period}</span>
+                  <span className="detail">
+                    <strong>{study.qualification}</strong>
+                    <span className="institution">{study.institution}</span>
+                    {study.note ? (
+                      <span className="note">{study.note}</span>
+                    ) : null}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      ) : null}
     </section>
   );
 }

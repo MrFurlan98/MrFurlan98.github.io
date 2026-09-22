@@ -64,7 +64,8 @@ export const experience: Role[] = [
   {
     id: "kool-games",
     company: "Kool Games Studio",
-    companyUrl: null,
+    // The studio has since wound down, but the site is still up.
+    companyUrl: "https://koolgames.io/",
     role: "Software Engineer / Game Developer",
     start: "2022",
     end: "2025",
@@ -93,5 +94,43 @@ export const experience: Role[] = [
         href: "https://web.archive.org/web/20250104163654/https://play.google.com/store/apps/details?id=com.koolgames.myamusementpark",
       },
     ],
+  },
+];
+
+/**
+ * Education, newest first.
+ *
+ * Deliberately terse and rendered below the roles rather than as its own
+ * section: with several years of shipped work the degree is something a
+ * reader checks for, not something that needs equal billing.
+ */
+export type Study = {
+  id: string;
+  qualification: string;
+  institution: string;
+  /** e.g. "2017 — 2023" */
+  period: string;
+  /** Optional one-liner, e.g. for an exchange year */
+  note?: string;
+};
+
+export const education: Study[] = [
+  {
+    id: "pucrs",
+    qualification: "Postgraduate, Full Stack Development",
+    institution: "PUCRS",
+    period: "2025 — 2026",
+  },
+  {
+    id: "utfpr",
+    qualification: "BSc Computer Engineering",
+    institution: "Universidade Tecnológica Federal do Paraná",
+    period: "2017 — 2023",
+  },
+  {
+    id: "porto",
+    qualification: "Exchange year, Computer Engineering",
+    institution: "University of Porto",
+    period: "2020 — 2021",
   },
 ];
