@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { Icon } from "./Icon";
 import { asset } from "../lib/asset";
+import { Lightbox } from "./Lightbox";
+import type { LightboxImage } from "./Lightbox";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { projects } from "../data/projects";
@@ -44,7 +46,13 @@ function ProjectLinks({ project }: { project: Project }) {
   );
 }
 
-function FeaturedCard({ project }: { project: Project }) {
+function FeaturedCard({
+  project,
+  onZoom,
+}: {
+  project: Project;
+  onZoom: (image: LightboxImage) => void;
+}) {
   return (
     <article className="card-featured">
       <div className="body">
@@ -68,13 +76,31 @@ function FeaturedCard({ project }: { project: Project }) {
 
       {project.image ? (
         <div className="shot">
-          <img
-            src={asset(project.image)}
-            alt={`Screenshot of ${project.title}`}
-            loading="lazy"
-            width={1600}
-            height={900}
-          />
+          <button
+            type="button"
+            className="shot-zoom"
+            aria-label={`View ${project.title} screenshot full size`}
+            onClick={() =>
+              onZoom({
+                src: project.image as string,
+                alt: `Screenshot of ${project.title}`,
+                caption: project.title,
+                width: project.imageWidth,
+                height: project.imageHeight,
+              })
+            }
+          >
+            <img
+              src={asset(project.image)}
+              alt={`Screenshot of ${project.title}`}
+              loading="lazy"
+              width={project.imageWidth ?? 1600}
+              height={project.imageHeight ?? 900}
+            />
+            <span className="shot-hint" aria-hidden="true">
+              Click to enlarge
+            </span>
+          </button>
         </div>
       ) : null}
     </article>
@@ -142,6 +168,7 @@ function CompactCard({ project }: { project: Project }) {
 
 export function Projects() {
   const [filter, setFilter] = useState<string>(ALL);
+  const [zoomed, setZoomed] = useState<LightboxImage | null>(null);
 
   // Every tag that appears on at least one project, plus "All".
   const tags = useMemo(() => {
@@ -194,7 +221,7 @@ export function Projects() {
         <div className="featured-list">
           {featured.map((project, i) => (
             <Reveal key={project.id} delay={i * 80}>
-              <FeaturedCard project={project} />
+              <FeaturedCard project={project} onZoom={setZoomed} />
             </Reveal>
           ))}
         </div>
@@ -213,6 +240,8 @@ export function Projects() {
       {visible.length === 0 ? (
         <p className="empty">No projects tagged &ldquo;{filter}&rdquo; yet.</p>
       ) : null}
+
+      <Lightbox image={zoomed} onClose={() => setZoomed(null)} />
     </section>
   );
 }

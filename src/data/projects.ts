@@ -21,6 +21,13 @@ export type Project = {
   demo: string | null;
   /** Screenshot in /public/projects/<file>. Optional but strongly recommended. */
   image?: string;
+  /**
+   * Intrinsic pixel size of `image`. Used to reserve the right space while it
+   * loads, so the card doesn't jump once it arrives. Defaults to 16:9 — set
+   * both whenever your screenshot isn't that shape.
+   */
+  imageWidth?: number;
+  imageHeight?: number;
   featured?: boolean;
   /** Free-text, e.g. "2025" or "2024 — present" */
   year?: string;
@@ -38,6 +45,8 @@ export const projects: Project[] = [
     repo: "https://github.com/MrFurlan98/ColorGuesser",
     demo: "https://mrfurlan98.github.io/ColorGuesserWebGL/",
     image: "/projects/adivinhe-a-cor.webp",
+    imageWidth: 1600,
+    imageHeight: 900,
     featured: true,
     year: "2026",
   },
@@ -51,7 +60,9 @@ export const projects: Project[] = [
     tags: ["JavaScript", "Canvas", "Tooling"],
     repo: "https://github.com/MrFurlan98/pk-line-planner",
     demo: "https://mrfurlan98.github.io/pk-line-planner/",
-    image: "/projects/placeholder.svg",
+    image: "/projects/pk-line-planner.webp",
+    imageWidth: 1600,
+    imageHeight: 1014,
     featured: true,
     year: "2026",
   },

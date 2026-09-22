@@ -724,6 +724,21 @@ ul {
 
    To crop to fill instead, swap the first three lines for:
      height: 100%; object-fit: cover; object-position: top left; */
+/* The whole screenshot is a button that opens the full-size viewer. */
+.card-featured .shot-zoom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
 .card-featured .shot img {
   width: 100%;
   height: auto;
@@ -732,6 +747,146 @@ ul {
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.card-featured .shot-zoom:hover img,
+.card-featured .shot-zoom:focus-visible img {
+  transform: scale(1.02);
+  border-color: var(--accent-border);
+}
+
+.shot-hint {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(0.35rem);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(8, 10, 15, 0.82);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.card-featured .shot-zoom:hover .shot-hint,
+.card-featured .shot-zoom:focus-visible .shot-hint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+
+.lightbox {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+.lightbox::backdrop {
+  background: rgba(5, 7, 11, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-figure {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: min(96vw, 1600px);
+  /* Not taller than this, so that centring the figure leaves room above it
+     for the close button (which sits 3rem clear of the top edge). */
+  max-height: 86vh;
+  animation: zoom-in 0.25s var(--ease);
+}
+
+.lightbox-figure img {
+  max-width: 100%;
+  /* Leave room for the caption below the image. */
+  max-height: calc(86vh - 3.5rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+    background 0.2s var(--ease);
+}
+
+.lightbox-close:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+  border-color: var(--accent-border);
+}
+
+.lightbox-close svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* On short or narrow screens the close button needs to sit inside the frame. */
+@media (max-height: 620px), (max-width: 560px) {
+  .lightbox-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(8, 10, 15, 0.85);
+    backdrop-filter: blur(6px);
+  }
 }
 
 .card-eyebrow {
