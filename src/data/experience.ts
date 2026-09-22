@@ -33,7 +33,7 @@ export const experience: Role[] = [
   {
     id: "medical-harbour",
     company: "Medical Harbour",
-    companyUrl: null,
+    companyUrl: "https://medicalharbour.com",
     role: "Software Engineer",
     start: "2025",
     end: "Present",
@@ -47,6 +47,19 @@ export const experience: Role[] = [
       "Work across Unity Addressables, AssetBundles, URP, shaders and performance optimization, plus reusable systems and internal tools that keep the project maintainable.",
     ],
     tags: ["C#", "Unity", "Shaders", "Real-time 3D", "WebGL", "REST APIs"],
+    // BioAtlas ships on web, Android and iOS from the one codebase — the three
+    // links are the clearest evidence of the cross-platform work above.
+    links: [
+      { label: "Try BioAtlas", href: "https://bioatlas.medicalharbour.com/" },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.medicalharbour.bioatlas",
+      },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/us/app/bioatlas-for-institutions/id1632056156",
+      },
+    ],
   },
   {
     id: "kool-games",
