@@ -2,6 +2,7 @@ import { Icon } from "./Icon";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { education, experience } from "../data/experience";
+import { languages } from "../data/profile";
 
 export function Experience() {
   return (
@@ -81,25 +82,44 @@ export function Experience() {
         ))}
       </ol>
 
-      {education.length > 0 ? (
+      {education.length > 0 || languages.length > 0 ? (
         <Reveal delay={120}>
-          <div className="education">
-            <h3>Education</h3>
+          <div className="credentials">
+            {education.length > 0 ? (
+              <div className="education">
+                <h3>Education</h3>
 
-            <ul>
-              {education.map((study) => (
-                <li key={study.id}>
-                  <span className="period">{study.period}</span>
-                  <span className="detail">
-                    <strong>{study.qualification}</strong>
-                    <span className="institution">{study.institution}</span>
-                    {study.note ? (
-                      <span className="note">{study.note}</span>
-                    ) : null}
-                  </span>
-                </li>
-              ))}
-            </ul>
+                <ul>
+                  {education.map((study) => (
+                    <li key={study.id}>
+                      <span className="period">{study.period}</span>
+                      <span className="detail">
+                        <strong>{study.qualification}</strong>
+                        <span className="institution">{study.institution}</span>
+                        {study.note ? (
+                          <span className="note">{study.note}</span>
+                        ) : null}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
+            {languages.length > 0 ? (
+              <div className="languages">
+                <h3>Languages</h3>
+
+                <ul>
+                  {languages.map((language) => (
+                    <li key={language.name}>
+                      <strong>{language.name}</strong>
+                      <span className="level">{language.level}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </Reveal>
       ) : null}

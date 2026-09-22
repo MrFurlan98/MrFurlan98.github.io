@@ -1351,17 +1351,28 @@ ul {
 }
 
 /* ==========================================================================
-   Education
-   Sits under the roles, intentionally quieter than the timeline above it.
+   Education & languages
+   Sit under the roles, intentionally quieter than the timeline above them.
    ========================================================================== */
 
-.education {
+.credentials {
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
   margin-top: 3.25rem;
   padding-top: 2.25rem;
   border-top: 1px solid var(--border);
 }
 
-.education h3 {
+@media (max-width: 720px) {
+  .credentials {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+.education h3,
+.languages h3 {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
@@ -1417,4 +1428,28 @@ ul {
     grid-template-columns: 1fr;
     gap: 0.2rem;
   }
+}
+
+.languages ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.languages li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.languages li strong {
+  font-weight: 600;
+  font-size: 0.97rem;
+  color: var(--text);
+}
+
+.languages .level {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
 }

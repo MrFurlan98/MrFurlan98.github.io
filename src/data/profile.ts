@@ -88,3 +88,9 @@ export const skillGroups: { title: string; items: string[] }[] = [
     items: ["Git", "CI/CD", "GitHub Actions", "Unit testing", "React", "Vite"],
   },
 ];
+
+/** Shown beside Education. Levels are CEFR, as on the CV. */
+export const languages: { name: string; level: string }[] = [
+  { name: "Portuguese", level: "Native" },
+  { name: "English", level: "B2" },
+];
