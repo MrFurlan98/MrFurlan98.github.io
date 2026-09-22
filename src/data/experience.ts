@@ -65,8 +65,20 @@ export const experience: Role[] = [
       "Optimized runtime performance and memory across a wide spread of mobile hardware.",
     ],
     tags: ["C#", "Unity", "Addressables", "Firebase", "Mobile", "Analytics"],
-    // TODO: if My Amusement Park is still listed, add its Play Store URL here
-    // and it'll render as a link on this role:
-    // links: [{ label: "My Amusement Park on Google Play", href: "https://play.google.com/store/apps/details?id=..." }],
+    // The game is still live on iOS, now published by Coco Play — same title,
+    // same store copy, and still shipping under the original
+    // com.koolgames.myamusementpark bundle id. The Android listing was
+    // delisted, so that one points at an archive: it's what evidences the
+    // 100K+ downloads under Kool Games Studio.
+    links: [
+      {
+        label: "My Amusement Park on the App Store",
+        href: "https://apps.apple.com/us/app/my-amusement-park/id6474623706",
+      },
+      {
+        label: "Original Play Store listing (archived)",
+        href: "https://web.archive.org/web/20250104163654/https://play.google.com/store/apps/details?id=com.koolgames.myamusementpark",
+      },
+    ],
   },
 ];
