@@ -708,15 +708,30 @@ ul {
 
 .card-featured .shot {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
   background: var(--bg-soft);
   border-left: 1px solid var(--border);
   min-height: 15rem;
 }
 
+/* Show the whole screenshot, whatever its aspect ratio — this column is
+   nearly square and screenshots usually aren't, so cropping to fill would
+   cut off part of the interface. Framing the image keeps the surrounding
+   space reading as a deliberate mount rather than as letterboxing.
+
+   To crop to fill instead, swap the first three lines for:
+     height: 100%; object-fit: cover; object-position: top left; */
 .card-featured .shot img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .card-eyebrow {

@@ -37,7 +37,7 @@ export const projects: Project[] = [
     tags: ["C#", "Unity", "Netcode", "Multiplayer", "WebGL"],
     repo: "https://github.com/MrFurlan98/ColorGuesser",
     demo: "https://mrfurlan98.github.io/ColorGuesserWebGL/",
-    image: "/projects/placeholder.svg",
+    image: "/projects/adivinhe-a-cor.webp",
     featured: true,
     year: "2026",
   },
